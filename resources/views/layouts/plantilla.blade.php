@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     @stack('estilos')
     
-    <style>
+<style>
         
         body {
             font-family: Arial, sans-serif;
@@ -98,7 +98,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-}
+    }
 
 </style>
 
