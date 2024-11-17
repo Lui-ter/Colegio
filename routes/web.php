@@ -96,6 +96,9 @@ route::post('/curso_registro',[cursoController::class, 'guardarC']);
 // ruta que dirige a la vista del interfaz-curso
 route::get('/curso_interfaz',[cursoController::class,'inicio']);
 
+//ruta par la papeleria
+route::get('curso_papeleria',[cursoController::class,'papeleria']);
+
 // ---------------------------------Cursos---------------------------------------
 
 // ---------------------------------Notas----------------------------------------
@@ -109,7 +112,15 @@ route::post('/nota_registro',[notasController::class, 'guardarN']);
 // ruta que dirige a la vista del interfaz-nota
 route::get('/nota_interfaz',[notasController::class,'inicio']);
 
-// ---------------------------------Notas----------------------------------------
+// ruta que dirige a la vista de la papeleria
+route::get('/nota_papeleria',[notasController::class,'papeleria']);
+
+//ruta para recuperar un campo
+route::get('/nota_recuperar/{id_nota}',[notasController::class,'recuperar']);
+
+//ruta para eliminar un campo
+route::get('/nota_eliminar/{id_nota}',[notasController::class,'eliminar']);
+//---------------------------------Notas----------------------------------------
 
 route::get('/registro_seis',[formulariosController::class, 'registrarM']);
 route::post('/datos_materia',[formulariosController::class, 'guardarM']);

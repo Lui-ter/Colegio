@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title','Administracion')</title>
-    <style>
+<style>
         
         body {
             font-family: Arial, sans-serif;
@@ -53,7 +53,7 @@
         justify-content: center;
         align-items: center;
         height: 100vh; 
-}
+        }
         .form-box {
         background-color: #ffffff;
         padding: 20px;
@@ -63,71 +63,71 @@
         
         margin: auto;
         margin-top: 14vh;
-    }
+        }
 
-.form-box h2, h3 {
-    color: #3C8E8F; 
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .form-box h2, h3 {
+            color: #3C8E8F; 
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-.input-group {
-    margin-bottom: 15px;
-}
+        .input-group {
+            margin-bottom: 15px;
+        }
 
-.input-group label {
-    display: block;
-    color: #1D4B58; 
-    margin-bottom: 5px;
-}
+        .input-group label {
+            display: block;
+            color: #1D4B58; 
+            margin-bottom: 5px;
+        }
 
-.input-group input {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+        .input-group input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
-.btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #3C8E8F; 
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
+        .btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #3C8E8F; 
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        }
 
-.btn:hover {
-    background-color: #2b6f72; 
-}
-.input-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #ffffff;
-    color: #1D4B58; 
-    font-size: 16px;
-    cursor: pointer;
-}
+        .btn:hover {
+        background-color: #2b6f72; 
+        }
+        .input-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #ffffff;
+        color: #1D4B58; 
+        font-size: 16px;
+        cursor: pointer;
+        }
 
-.input-group select:focus {
-    border-color: #3C8E8F; 
-    outline: none;
-}
+        .input-group select:focus {
+        border-color: #3C8E8F; 
+        outline: none;
+        }
 
-.footer{
-background-color: #2a9d8f;
-color: #ffffff;
-text-align: center;
-padding: 15px 0;
-font-size: 14px;
-position: relative;
-bottom: 0;
-width: 100%;
-}
+        .footer{
+        background-color: #2a9d8f;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px 0;
+        font-size: 14px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        }
 </style>
 </head>
 <body>

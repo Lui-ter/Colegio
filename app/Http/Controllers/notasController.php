@@ -29,4 +29,28 @@ class notasController extends Controller
         return redirect('nota_interfaz');
     }
     
+    //Metodo para eliminar un campo
+
+    function eliminar($id_nota){
+        $nota = notas::find($id_nota);
+        $nota->estado=0;
+        $nota->save();
+        return redirect('nota_interfaz');
+    }
+
+
+    //Metodo para mostrar la papeleria
+    function papeleria(){
+        $nota = notas::where('estado', 0)->get();
+        return view('interfaces/notas/papeleria_notas',['nota'=> $nota]);
+    }
+
+    //Metodo para recuperar campos
+    function recuperar($id_nota){
+        $nota = notas::find($id_nota);
+        $nota->estado = 1;
+        $nota->save();
+        return redirect('nota_interfaz');
+    }
+
 }

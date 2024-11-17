@@ -28,4 +28,10 @@ class cursoController extends Controller
         $curso->save();
         return redirect('curso_interfaz');
     }
+
+    //Metodo para mostrar la peleleria
+    function papeleria(){
+        $curso = cursos::where('estado', 0)->get();
+        return view('interfaces/cursos/papeleria_curso',['cursos'=> $curso]);
+    }
 }
