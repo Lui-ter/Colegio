@@ -21,7 +21,7 @@ Route::get('/', function () {
 // ruta que dirige a la vista del formulario registro-estudiante
 Route::get('/estudiante_formulario',[estudianteController::class,'registrarE']);
 
-// ruta post para recibir los datos del formulario registro-estudiante
+// ruta post para recibir los datos del formulario registro-estudiante 
 route::post('/estudiante_registro',[estudianteController::class, 'guardarE']);
 
 // ruta que dirige a la vista del interfaz-estudiante
@@ -71,12 +71,12 @@ route::get('/acudiente_interfaz',[acudienteController::class,'inicio']);
 
 // route for the stationery, access the view
 route::get('/papeleria_acudiente',[acudienteController::class,'papeleria']);
+//ruta para eliminar un campo
+route::get('/acudiente_eliminar/{id_acudiente}',[acudienteController::class,'eliminar']);
+//ruta para recuperar
 
-// ruta para recuperar un registro
-route::get('acudiente_recuperar/{id_acudiente}',[acudienteController::class,'recuperar']);
+route::get('/acudiente_recuperar/{id_acudiente}',[acudienteController::class,'recuperar']);
 
-// ruta para eliminar un registro
-route::get('acudiente_eliminar/{id_acudiente}',[acudienteController::class,'eliminar']);
 // -------------------------------Acudientes-------------------------------------
 
 // --------------------------------Materias--------------------------------------
@@ -101,13 +101,10 @@ route::post('/curso_registro',[cursoController::class, 'guardarC']);
 
 // ruta que dirige a la vista del interfaz-curso
 route::get('/curso_interfaz',[cursoController::class,'inicio']);
-<<<<<<< HEAD
-=======
 
 //ruta par la papeleria
 route::get('curso_papeleria',[cursoController::class,'papeleria']);
 
->>>>>>> 8a48a73cb0ff281daf37ca8e657e7e42734f92cb
 // ---------------------------------Cursos---------------------------------------
 
 // ---------------------------------Notas----------------------------------------
@@ -122,7 +119,8 @@ route::post('/nota_registro',[notasController::class, 'guardarN']);
 route::get('/nota_interfaz',[notasController::class,'inicio']);
 
 // ruta que dirige a la vista de la papeleria
-route::get('/nota_papeleria',[notasController::class,'papeleria']);
+route::get('
+/nota_papeleria',[notasController::class,'papeleria']);
 
 //ruta para recuperar un campo
 route::get('/nota_recuperar/{id_nota}',[notasController::class,'recuperar']);
@@ -171,7 +169,7 @@ route::get('/login',[formulariosController::class,'login']);
 
 
  /*$estudiantes= new estudiantes;
-    $estudiantes->nombres = 'Karlitos';
+    $estudiantes->nombres = 'Karlitos'; 
     $estudiantes->apellidos = 'Karlitos';
     $estudiantes->correo = 'karlistos23@gmail.com';
     $estudiantes->direccion = 'calle13';
@@ -186,7 +184,7 @@ route::get('/login',[formulariosController::class,'login']);
    //return $estudiantes;
     //buscar y actualizar
     /*$estudiantes = estudiantes::where('direccion','calle13')->first();
-
+    
 
     $estudiantes->nombres = 'Juanprime';
     $estudiantes->save();
