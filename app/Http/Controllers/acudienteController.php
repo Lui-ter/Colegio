@@ -30,4 +30,23 @@ class acudienteController extends Controller
         $acudiente->save();
         return redirect('acudiente_interfaz');
     }
+    // metodo para eliminar un registro
+    function eliminar($id_acudiente){
+        $acudiente = acudientes::find($id_acudiente);
+        $acudiente->estado = 0;
+        $acudiente->save();
+        return redirect('acudiente_interfaz');
+    }
+    // metodo para dirigir a la vista papelera_acudiente y mostrar los registros a travez del estado 0
+    function papeleria(){
+        $acudiente = acudientes::where('estado', 0)->get();
+        return view('interfaces/acudientes/papelera_acudiente',['registros'=>$acudiente]);
+    }
+    // metodo para recuperar un registro de la papelera a la interfaz acudiente
+    function recuperar($id_acudiente){
+        $acudiente = acudientes::find($id_acudiente);
+        $acudiente->estado = 1;
+        $acudiente->save();
+        return redirect('acudiente_interfaz');
+    }
 }

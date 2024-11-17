@@ -109,8 +109,7 @@
     <div class="Titulo">
         <H3>Acudiente</H3>
     </div>
-            <a href="{{url('acudiente_formulario')}}"><button>Nuevo Registro</button></a>
-            <a href="{{url('papeleria_acudiente')}}"><button>Papeleria</button></a>
+            <a href="{{url('acudiente_interfaz')}}"><button>Volver</button></a>
     <div class="Tabla">
 
         <table border="1">
@@ -139,7 +138,7 @@
                 <td>{{$registro->tipo_documento}}</td>
                 <td>{{$registro->numero_documento}}</td>
                 <td>Editar</td>
-                <td><a href="{{ url('acudiente_eliminar/'.$registro->id_acudiente)}}"onclick="return confirm('¿Estás seguro de borrar este campo?')">Borrar</a></td>
+                <td><a href="{{ url('acudiente_recuperar/'. $registro->id_acudiente)}}"onclick="return confirm('¿Estas seguro de recuperar el campo?')">Recuperar</a></td>
             </tr>
         @endforeach
         </table>

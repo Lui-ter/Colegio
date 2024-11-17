@@ -21,7 +21,7 @@ Route::get('/', function () {
 // ruta que dirige a la vista del formulario registro-estudiante
 Route::get('/estudiante_formulario',[estudianteController::class,'registrarE']);
 
-// ruta post para recibir los datos del formulario registro-estudiante 
+// ruta post para recibir los datos del formulario registro-estudiante
 route::post('/estudiante_registro',[estudianteController::class, 'guardarE']);
 
 // ruta que dirige a la vista del interfaz-estudiante
@@ -71,6 +71,12 @@ route::get('/acudiente_interfaz',[acudienteController::class,'inicio']);
 
 // route for the stationery, access the view
 route::get('/papeleria_acudiente',[acudienteController::class,'papeleria']);
+
+// ruta para recuperar un registro
+route::get('acudiente_recuperar/{id_acudiente}',[acudienteController::class,'recuperar']);
+
+// ruta para eliminar un registro
+route::get('acudiente_eliminar/{id_acudiente}',[acudienteController::class,'eliminar']);
 // -------------------------------Acudientes-------------------------------------
 
 // --------------------------------Materias--------------------------------------
@@ -95,7 +101,6 @@ route::post('/curso_registro',[cursoController::class, 'guardarC']);
 
 // ruta que dirige a la vista del interfaz-curso
 route::get('/curso_interfaz',[cursoController::class,'inicio']);
-
 // ---------------------------------Cursos---------------------------------------
 
 // ---------------------------------Notas----------------------------------------
@@ -151,7 +156,7 @@ route::get('/login',[formulariosController::class,'login']);
 
 
  /*$estudiantes= new estudiantes;
-    $estudiantes->nombres = 'Karlitos'; 
+    $estudiantes->nombres = 'Karlitos';
     $estudiantes->apellidos = 'Karlitos';
     $estudiantes->correo = 'karlistos23@gmail.com';
     $estudiantes->direccion = 'calle13';
@@ -166,7 +171,7 @@ route::get('/login',[formulariosController::class,'login']);
    //return $estudiantes;
     //buscar y actualizar
     /*$estudiantes = estudiantes::where('direccion','calle13')->first();
-    
+
 
     $estudiantes->nombres = 'Juanprime';
     $estudiantes->save();

@@ -28,4 +28,19 @@ class cursoController extends Controller
         $curso->save();
         return redirect('curso_interfaz');
     }
+    // metodo para eliminar un registro
+    function eliminar($id_curso){
+        $curso = cursos::find($id_curso);
+        $curso->estado = 0;
+        $curso->save();
+        return redirect('curso_interfaz');
+    }
+    // metodo para recuperar un registro de la papelera a la interfaz acudiente
+    function recuperar($id_curso){
+        $curso = cursos::find($id_curso);
+        $curso->estado = 1;
+        $curso->save();
+        return redirect('curso_interfaz');
+    }
+
 }

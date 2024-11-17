@@ -7,18 +7,18 @@
         margin-right: auto;
     }
     h3 {
-        text-align: center; 
+        text-align: center;
     }
 
     .titulo {
-    display: flex;            
-    justify-content: center;  
-    align-items: center;       
-    height: 100px;             
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
     width: 100%;
-    font-size: 30px;            
-    background-color: #f0f0f0; 
-} 
+    font-size: 30px;
+    background-color: #f0f0f0;
+}
     body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -107,7 +107,7 @@
 </style>
 <div class="container1">
     <div class="titulo">
-        <h3>Cursos</h3> 
+        <h3>Cursos</h3>
     </div>
             <a href="{{url('curso_formulario')}}"><button>Nuevo Registro</button></a>
             <a href="#"><button>Papeleria</button></a>
@@ -129,8 +129,8 @@
                 <td>{{$cursos->profesor_id}}</td>
                 <td>{{$cursos->estudiante_id}}</td>
                 <td><a href="#">Editar</a></td>
-                <td><a href="#">Borrar</a></td>
-            </tr>        
+                <td><a href="{{ url('curso_papelera/'.$cursos=>id_curso) }}"onclick="return confirm('¿Estás seguro de borrar este campo?')">Borrar</a></td>
+            </tr>
         @endforeach
         </table>
 
