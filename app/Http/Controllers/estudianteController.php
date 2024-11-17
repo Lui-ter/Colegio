@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
 use App\Models\estudiantes;
 use Illuminate\Http\Request;
 
+
 class estudianteController extends Controller
 {
-    // metodo para consultar los datos existentes en la tabla estudiantes mientras la condicion sea que el estado sea 1 y mostrarlos en la vista interfaz estudiante 
+    // metodo para consultar los datos existentes en la tabla estudiantes mientras la condicion sea que el estado sea 1 y mostrarlos en la vista interfaz estudiante
     function inicio () {
     $estudiante = estudiantes::where('estado', 1)->get();
     return view ('interfaces/estudiantes/estudiante', ['estudiantes'=>$estudiante]);
@@ -17,20 +18,27 @@ class estudianteController extends Controller
     function registrarE (){
             return view('interfaces/estudiantes/registro_estudiante');
         }
-    
-    // metodo para registrar los datos que se reciben del formulario registro-estudiante y guardarlos en la tabla estudiantes y redirigir a la vista interfaz estudiante
-    function guardarE(Request $request){      
-            $estudiante = new estudiantes();
-            $estudiante->nombres = $request->input('nombre');
-            $estudiante->apellidos = $request->input('apellido');
-            $estudiante->correo = $request->input('correo');
-            $estudiante->direccion = $request->input('direccion');
-            $estudiante->fecha_nacimiento = $request->input('fecha_nacimiento');
-            $estudiante->tipo_documento = $request->input('tipo_documento');
-            $estudiante->numero_documento = $request->input('numero_documento');
-            $estudiante->save();
-            return redirect('estudiante_interfaz');
+
+    // metodo para validar los datos que llegan del formulario form-estudiante sean correctos y registrarlos en la tabla estudiantes y redirigir a la vista interfaz estudiante
+    function guardarE(Request $request){
+        $validator = Validator::make($request->all(),[
+            'nombres' => 'required|alpha:ascii',
+            'apellidos' => 'required|alpha:ascii',
+            'correo' => 'required|email|unique:estudiantes,correo',
+            'direccion' => 'required|string',
+            'fecha_nacimiento' => 'required|date',
+            'tipo_documento' => 'required|string',
+            'numero_documento' => 'required|integer|unique:estudiantes,numero_documento',
+        ]);
+        if($validator->fails()){
+            return back()
+                ->withErrors($validator)
+                ->withInput();
         }
+        $data = $request->only(['nombres','apellidos','correo','direccion','fecha_nacimiento','tipo_documento','numero_documento']);
+        estudiantes::create($data);
+        return redirect('estudiante_interfaz');
+    }
 
     //Metodo para eliminar un registro
     function eliminar($id_estudiante){
@@ -39,7 +47,7 @@ class estudianteController extends Controller
         $estudiante->save();
         return redirect('estudiante_interfaz');
     }
-    
+
     //Metodo papelera mostra una vista con los registros con el estado 0
     function papelera() {
         $estudiante = estudiantes::where('estado', 0)->get();
