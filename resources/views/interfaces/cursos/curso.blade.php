@@ -110,7 +110,7 @@
         <h3>Cursos</h3>
     </div>
             <a href="{{url('curso_formulario')}}"><button>Nuevo Registro</button></a>
-            <a href="#"><button>Papeleria</button></a>
+            <a href="{{url('curso_papeleria')}}"><button>Papeleria</button></a>
     <div class="tabla">
 
         <table border="1">
