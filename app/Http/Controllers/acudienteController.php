@@ -3,46 +3,62 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\acudientes;
+use App\Models\estudiantes;
+
 class acudienteController extends Controller
 {
-    // metodo para mostrar el interfaz y sus registros
+    // Metodo para mostrar el interfaz-acudiente y sus registros con el estado en 1
     function inicio () {
         $acudientes = acudientes::where('estado',1)->get();
         return view('interfaces/acudientes/acudiente', ['registros'=>$acudientes]);
     }
-     //Metodo para mostrar formulario
+
+    // Metodo para mostrar formulario-acudiente y enviar un selec de la tabla estudiantes a la interfaz registro-acudiente
     function registrarA(){
-        return view('interfaces/acudientes/registro_acudiente');
+        $estudiantes = estudiantes::all();
+        return view('interfaces/acudientes/registro_acudiente',compact('estudiantes'));
     }
-     //Metodo para recibir y guardar los datos del formulario
+
+    //  Metodo para recibir los datos del formulario-acudiente y validarlos para hacer la insercion en la tabla acudientes y redirigirte al metodo inicio
     function guardarA(Request $request){
-        $acudiente = new acudientes();
-        $acudiente->nombres = $request->input('nombre');
-        $acudiente->apellidos = $request->input('apellido');
-        $acudiente->correo = $request->input('correo');
-        $acudiente->direccion = $request->input('direccion');
-        $acudiente->telefono = $request->input('telefono');
-        $acudiente->fecha_nacimiento = $request->input('fecha_nacimiento');
-        $acudiente->tipo_documento = $request->input('tipo_documento');
-        $acudiente->numero_documento = $request->input('numero_documento');
-        $acudiente->estudiante_id = $request->input('estudiante_id');
-        $acudiente->save();
+        $validator = Validator::make($request->all(),[
+            'nombres' => 'required|alpha:ascii',
+            'apellidos' => 'required|alpha:ascii',
+            'correo' => 'required|email|unique:acudientes,correo',
+            'direccion' => 'required|string',
+            'telefono' => 'required|integer|unique:acudientes,telefono',
+            'fecha_nacimiento' => 'required|date',
+            'tipo_documento' => 'required|string',
+            'numero_documento' => 'required|integer|unique:acudientes,numero_documento',
+            'estudiante_id' => 'required|exists:estudiantes,id_estudiante',
+        ]);
+        if($validator->fails()){
+            return back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+        $data = $request->only(['nombres','apellidos','correo','direccion','telefono','fecha_nacimiento','tipo_documento','numero_documento','estudiante_id']);
+        acudientes::create($data);
         return redirect('acudiente_interfaz');
     }
-    // metodo para eliminar un registro
+
+    // Metodo para actualizar el estado de un registro de 1 a 0
     function eliminar($id_acudiente){
         $acudiente = acudientes::find($id_acudiente);
         $acudiente->estado = 0;
         $acudiente->save();
         return redirect('acudiente_interfaz');
     }
-    // metodo para dirigir a la vista papelera_acudiente y mostrar los registros a travez del estado 0
+
+    // Metodo para mostrar la papeleria, son los registros donde el estado es 0
     function papeleria(){
         $acudiente = acudientes::where('estado', 0)->get();
         return view('interfaces/acudientes/papelera_acudiente',['registros'=>$acudiente]);
     }
-    // metodo para recuperar un registro de la papelera a la interfaz acudiente
+
+    // Metodo para actualizar el estado de un registro de 0 a 1 y dirigirte a la interfaz-profesor
     function recuperar($id_acudiente){
         $acudiente = acudientes::find($id_acudiente);
         $acudiente->estado = 1;

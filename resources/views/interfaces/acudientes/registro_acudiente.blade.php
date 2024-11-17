@@ -7,45 +7,77 @@
             @csrf
             <div class="input-group">
                 <label>Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombres" name="nombres" value="{{ old('nombres') }}" autofocus required>
+                @error('nombres')
+                        <div class="alerta">{{ $message }}</div>
+                @enderror
             </div>
             <div class="input-group">
                 <label>Apellido</label>
-                <input type="text" id="apellido" name="apellido" required>
+                <input type="text" id="apellidos" name="apellidos" value="{{ old('apellidos') }}" required>
+                @error('apellidos')
+                        <div class="alerta">{{ $message }}</div>
+                @enderror
             </div>
             <div class="input-group">
                 <label>Correo</label>
-                <input type="text" id="correo" name="correo" required>
+                <input type="text" id="correo" name="correo" value="{{ old('correo') }}" required>
+                @error('correo')
+                        <div class="alerta">{{ $message }}</div>
+                @enderror
             </div>
             <div class="input-group">
                 <label>Dirección</label>
-                <input type="text" id="direccion" name="direccion" required>
+                <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}" required>
+                @error('direccion')
+                        <div class="alerta">{{ $message }}</div>
+                @enderror
             </div>
             <div class="input-group">
                 <label>Telefono</label>
-                <input type="number" id="telefono" name="telefono" required>
+                <input type="number" id="telefono" name="telefono" value="{{ old('telefono') }}" required>
+                @error('telefono')
+                        <div class="alerta">{{ $message }}</div>
+                @enderror
             </div>
             <div class="input-group">
                 <label>Fecha de nacimiento</label>
-                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required>
+                @error('fecha_nacimiento')
+                        <div class="alerta">{{ $message }}</div>
+                @enderror
             </div>
             <div class="input-group">
                 <label>Tipo documento</label>
-                <select name="tipo_documento" id="identificacion">
-                    <option value="cc">Cedula</option>
-                    <option value="ti">Tarjeta identidad</option>
-                    <option value="ce">Cedula extrajeria</option>
+                <select name="tipo_documento" id="tipo_documento">
+                    <option value="C.C.">Cedula</option>
+                    <option value="T.I.">Tarjeta identidad</option>
+                    <option value="C.E.">Cedula extrajeria</option>
                 </select>
+                @error('tipo_documento')
+                        <div class="alerta">{{ $message }}</div>
+                @enderror
             </div>
             <div class="input-group">
                 <label >Numero documento</label>
-                <input type="number" id="numero_documento" name="numero_documento" required>
+                <input type="number" id="numero_documento" name="numero_documento" value="{{ old('numero_documento') }}" required>
+                @error('numero_documento')
+                        <div class="alerta">{{ $message }}</div>
+                @enderror
             </div>
             <div class="input-group">
-                <label >id del estudiante</label>
-                <input type="number" id="estudiante_id" name="estudiante_id" required>
+                <label >Nombre del estudiante</label>
+                <select name="estudiante_id" id="estudiante_id" required>
+                    <option value="" selected>Seleccionar</option>
+                    @foreach ($estudiantes as $estudiante)
+                        <option {{ old('estudiante_id') == $estudiante->id_estudiante ? 'selected' : ''}}value="{{ $estudiante->id_estudiante }}">{{ $estudiante->nombres.' '.$estudiante->apellidos }}</option>
+                    @endforeach
+                </select>
+                @error('estudiante_id')
+                        <div class="alerta">{{ $message }}</div>
+                @enderror
             </div>
-         
+
             <button type="submit" class="btn">Registrar</button>
         </form>
     </div>
