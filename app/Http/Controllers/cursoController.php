@@ -11,7 +11,7 @@ class cursoController extends Controller
     //Metodo para mostrar interfaz y sus registros
     function inicio () {
         $curso = cursos::where('estado', 1)->get();
-        return view ('interfaces/cursos/curso',['curso'=>$curso]);
+        return view ('interfaces/cursos/curso',['cursos'=>$curso]);
     }
 
     //Metodo para mostrar formulario
@@ -28,4 +28,26 @@ class cursoController extends Controller
         $curso->save();
         return redirect('curso_interfaz');
     }
+
+    function eliminar($id_curso){
+        $curso = cursos::find($id_curso);
+        $curso->estado= 0;
+        $curso->save();
+        return redirect('curso_interfaz');
+    }
+
+    function recuperar($id_curso){
+        $curso = cursos::find($id_curso);
+        $curso->estado= 1;
+        $curso->save();
+        return redirect('curso_interfaz');
+    }
+
+    function papeleria(){
+        $curso = cursos::where('estado', 0)->get();
+        return view('interfaces/cursos/papeleria_curso',['cursos'=>$curso]);
+
+    }
+
+    
 }

@@ -72,6 +72,7 @@ route::get('/acudiente_interfaz',[acudienteController::class,'inicio']);
 // route for the stationery, access the view
 route::get('/papeleria_acudiente',[acudienteController::class,'papeleria']);
 //ruta para eliminar un campo
+
 route::get('/acudiente_eliminar/{id_acudiente}',[acudienteController::class,'eliminar']);
 //ruta para recuperar
 
@@ -104,6 +105,12 @@ route::get('/curso_interfaz',[cursoController::class,'inicio']);
 
 //ruta par la papeleria
 route::get('curso_papeleria',[cursoController::class,'papeleria']);
+
+//ruta para recuperar un campo
+route::get('/curso_recuperar/{id_curso}',[cursoController::class,'recuperar']);
+
+//ruta para eliminar un campo
+route::get('/curso_eliminar/{id_curso}',[cursoController::class,'eliminar']);
 
 // ---------------------------------Cursos---------------------------------------
 

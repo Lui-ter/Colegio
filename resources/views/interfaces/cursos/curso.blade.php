@@ -122,14 +122,14 @@
                 <td>Editar</td>
                 <td>Borrar</td>
             </tr>
-        @foreach ( $curso as $cursos )
+        @foreach ( $cursos as $curso )
             <tr>
-                <td>{{$cursos->id_curso}}</td>
-                <td>{{$cursos->nombre}}</td>
-                <td>{{$cursos->profesor_id}}</td>
-                <td>{{$cursos->estudiante_id}}</td>
+                <td>{{$curso->id_curso}}</td>
+                <td>{{$curso->nombre}}</td>
+                <td>{{$curso->profesor_id}}</td>
+                <td>{{$curso->estudiante_id}}</td>
                 <td><a href="#">Editar</a></td>
-                <td><a href="{{ url('curso_papelera/'.$cursos=>id_curso) }}"onclick="return confirm('¿Estás seguro de borrar este campo?')">Borrar</a></td>
+                <td><a href="{{ url('curso_eliminar/'.$curso->id_curso) }}"onclick="return confirm('¿Estás seguro de borrar este campo?')">Borrar</a></td>
             </tr>
         @endforeach
         </table>
