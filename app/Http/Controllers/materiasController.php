@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\materias;
 use App\Models\profesores;
 use Illuminate\Http\Request;
-
-use Validator;
-
+use Illuminate\Support\Facades\Validator;
 class materiasController extends Controller
 {
     function inicio () {
