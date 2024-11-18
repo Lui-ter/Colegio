@@ -18,7 +18,7 @@
                 @error('nota2')
                 <div class="alerta">{{ $message }}</div>
             @enderror
-            </div>            
+            </div>
             <div class="input-group">
                 <label>Nota N°3</label>
                 <input type="decimal" id="nota3" name="nota3" required>
@@ -27,15 +27,25 @@
                 @enderror
             </div>
             <div class="input-group">
-                <label>ID Materia</label>
-                <input type="text" id="apellido" name="materia_id" required>
+                <label>Materia</label>
+                <select name="materia_id" id="materia_id" required>
+                    <option value="" selected>Seleccionar</option>
+                    @foreach ($materias as $materia)
+                        <option {{ old('materia_id') == $materia->id_materia ? 'selected' : ''}}value="{{ $materia->id_materia }}">{{ $materia->nombre}}</option>
+                    @endforeach
+                </select>
                 @error('materia_id')
                 <div class="alerta">{{ $message }}</div>
             @enderror
             </div>
             <div class="input-group">
-                <label>ID Estudiante</label>
-                <input type="text" id="correo" name="estudiante_id" required>
+                <label>Estudiante</label>
+                <select name="estudiante_id" id="estudiante_id" required>
+                    <option value="" selected>Seleccionar</option>
+                    @foreach ($estudiantes as $estudiante)
+                        <option {{ old('estudiante_id') == $estudiante->id_estudiante ? 'selected' : ''}}value="{{ $estudiante->id_estudiante }}">{{ $estudiante->nombres.' '.$estudiante->apellidos }}</option>
+                    @endforeach
+                </select>
                 @error('estudiante_id')
                 <div class="alerta">{{ $message }}</div>
                 @enderror

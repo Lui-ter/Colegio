@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Validator;
 use App\Models\notas;
+use App\Models\materias;
+use App\Models\estudiantes;
 use Illuminate\Http\Request;
 
 class notasController extends Controller
@@ -15,10 +18,12 @@ class notasController extends Controller
 
     //Metodo para mostrar formulario
     function registrarN(){
-        return view('interfaces/notas/registro_nota');
+        $materias = materias::all();
+        $estudiantes = estudiantes::all();
+        return view('interfaces/notas/registro_nota', compact('materias','estudiantes'));
     }
     //Metodo para recibir y guardar los datos del formulario}
-    
+
     function guardarN(Request $request){
         $validator = Validator::make($request->all(),[
         'nota1' => 'required|numeric|min:0|max:5',
@@ -49,7 +54,7 @@ class notasController extends Controller
         }
         $data = $request->only(['nota1','nota2','nota3','materia_id','estudiante_id']);
         notas::create($data);
-        
+
         return redirect('nota_interfaz');
     }
     //Metodo para eliminar un campo

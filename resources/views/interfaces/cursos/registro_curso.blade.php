@@ -14,15 +14,25 @@
                 @enderror
             </div>
             <div class="input-group">
-                <label>ID Profesor</label>
-                <input type="text" id="apellido" name="profesor_id" required>
+                <label>Profesor</label>
+                <select name="profesor_id" id="profesor_id" required>
+                    <option value="" selected>Seleccionar</option>
+                    @foreach ($profesores as $profesor)
+                        <option {{ old('profesor_id') == $profesor->id_profesor ? 'selected' : ''}}value="{{ $profesor->id_profesor }}">{{ $profesor->nombres.' '.$profesor->apellidos }}</option>
+                    @endforeach
+                </select>
                 @error('profesor_id')
                     <div class="alerta">{{ $message }}</div>
                 @enderror
             </div>
             <div class="input-group">
-                <label>ID Estudiante</label>
-                <input type="text" id="correo" name="estudiante_id" required>
+                <label>Estudiante</label>
+                <select name="estudiante_id" id="estudiante_id" required>
+                    <option value="" selected>Seleccionar</option>
+                    @foreach ($estudiantes as $estudiante)
+                        <option {{ old('estudiante_id') == $estudiante->id_estudiante ? 'selected' : ''}}value="{{ $estudiante->id_estudiante }}">{{ $estudiante->nombres.' '.$estudiante->apellidos }}</option>
+                    @endforeach
+                </select>
                 @error('estudiante_id')
                     <div class="alerta">{{ $message }}</div>
                 @enderror

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use App\Models\cursos;
+use App\Models\estudiantes;
+use App\Models\profesores;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -16,7 +18,9 @@ class cursoController extends Controller
 
     //Metodo para mostrar formulario
     function registrarC(){
-        return view('interfaces/cursos/registro_curso');
+        $estudiantes = estudiantes::all();
+        $profesores = profesores::all();
+        return view('interfaces/cursos/registro_curso',compact('estudiantes','profesores'));
     }
 
     //Metodo para recibir y guardar los datos del formulario
@@ -65,5 +69,5 @@ class cursoController extends Controller
 
     }
 
-    
+
 }
