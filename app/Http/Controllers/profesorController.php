@@ -29,7 +29,24 @@ class profesorController extends Controller
             'telefono' => 'required|integer',
             'tipo_documento' => 'required|string',
             'num_documento' => 'required|integer|unique:profesores,num_documento',
+        ],[
+            'nombres.required' => 'Se requiere un nombre en este campo',
+            'nombres.alpha' => 'Escriba solo carácteres',
+            'apellidos.required' => 'Se requiere un apellido en este campo',
+            'apellidos.alpha' => 'Escriba solo carácteres',
+            'correo.required' => 'Se requiere un correo en este campo',
+            'correo.email' => 'Escriba un correo valido',
+            'correo.unique' => 'Ya exsite ese correo, introduzca uno nuevo',
+            'fecha_nacimiento.required' => 'Se requiere una fecha en este campo',
+            'fecha_nacimiento.date' => 'Solo se acepta fechas en este campo',
+            'telefono.required' => 'Se requiere un telefono en este campo',
+            'telefono.integer' => 'Escriba solo números en este campo',
+            'tipo_documento.required' => 'Seleccione un tipo de documento',
+            'numero_documento.required' => 'Se requiere un número de documento en este campo',
+            'numero_documento.integer' => 'Escriba solo números en este campo',
+            'numero_documento.unique' => 'Ya existe ese número de documento, introduzca uno nuevo',
         ]);
+
         if($validator->fails()){
             return back()
                 ->withErrors($validator)

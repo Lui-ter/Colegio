@@ -29,7 +29,24 @@ class estudianteController extends Controller
             'fecha_nacimiento' => 'required|date',
             'tipo_documento' => 'required|string',
             'numero_documento' => 'required|integer|unique:estudiantes,numero_documento',
+        ],[
+            'nombres.required' => 'Se requiere un nombre en este campo',
+            'nombres.alpha' => 'Escriba solo carácteres',
+            'apellidos.required' => 'Se requiere un apellido en este campo',
+            'apellidos.alpha' => 'Escriba solo carácteres',
+            'correo.required' => 'Se requiere un correo en este campo',
+            'correo.email' => 'Escriba un correo valido',
+            'correo.unique' => 'Ya existe ese correo, introduzca uno nuevo',
+            'direccion.required' => 'Se requiere una dirección en este campo',
+            'direccion.string' => 'Escriba una dirección valida',
+            'fecha_nacimiento.required' => 'Se requiere una fecha en este campo',
+            'fecha_nacimiento.date' => 'Solo se acepta fechas en este campo',
+            'tipo_documento.required' => 'Seleccione un tipo de documento',
+            'numero_documento.required' => 'Se requiere un numero de documento en este campo',
+            'numero_documento.integer' => 'Escriba solo números',
+            'numero_documento.unique' => 'Ya existe ese numero de documento, introduzca uno nuevo',
         ]);
+
         if($validator->fails()){
             return back()
                 ->withErrors($validator)

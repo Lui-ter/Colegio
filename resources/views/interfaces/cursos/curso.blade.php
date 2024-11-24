@@ -1,5 +1,4 @@
 @extends('layouts.plantilla')
-@section('container')
 @push('estilos')
 <style>
     .container1{
@@ -105,6 +104,7 @@
     margin: 0 5px;
 }
 </style>
+@section('container')
 <div class="container1">
     <div class="titulo">
         <h3>Cursos</h3>

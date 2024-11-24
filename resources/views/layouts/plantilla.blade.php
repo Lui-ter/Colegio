@@ -6,18 +6,17 @@
     <title>@yield('title','Login')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     @stack('estilos')
-    
+
 <style>
-        
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
             margin: 0;
             padding: 0;
+            height: 100%;
+            width: 100%;
         }
-        
-      
         header {
             background-color: #2a9d8f;
             color: #fff;
@@ -25,8 +24,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            
-            
         }
 
          .h1 {
@@ -56,18 +53,19 @@
             background-color: #1d3f40;
         }
 
-        
+
         .container_l {
             display: flex;
+            height: 100%;
         }
 
-        
+
         .sidebar {
             width: 250px;
             background-color: #264653;
             padding: 15px;
             color: #fff;
-            height: 100vh;
+            height: auto;
         }
 
         .sidebar a {
@@ -83,7 +81,7 @@
             background-color: #2a9d8f;
         }
 
-        
+
         .main-content {
             flex-grow: 1;
             padding: 20px;
@@ -95,7 +93,7 @@
     text-align: center;
     padding: 15px 0;
     font-size: 14px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     }
@@ -104,13 +102,13 @@
 
 </head>
 <body>
-    
+
     <!-- Header -->
     <header>
         <a href="/" class="h1">Houston Academy</a>
         <div class="header-buttons">
             <a href="/login">Iniciar Sesión</a>
-            
+
         </div>
     </header>
 
@@ -127,14 +125,14 @@
             <a href="{{url('curso_interfaz')}}">Cursos</a>
             <a href="{{url('materia')}}">Materias</a>
             <a href="{{url('nota_interfaz')}}">Notas</a>
-            
-           
+
+
         </aside>
         @yield('container')
     </div>
-    
-    
-    
+
+
+
 
 
 

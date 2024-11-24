@@ -1,25 +1,25 @@
 @extends('layouts.plantilla')
 @section('container')
-
 @push('estilos')
 <style>
     .container1{
+        padding: 20px;
         margin-left: auto;
         margin-right: auto;
     }
     h3{
-        text-align: center; 
+        text-align: center;
     }
 
     .titulo {
-        display: flex;            
-        justify-content: center;  
-        align-items: center;       
-        height: 100px;             
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
         width: 100%;
-        font-size: 30px;            
-        background-color: #f0f0f0; 
-    } 
+        font-size: 30px;
+        background-color: #f0f0f0;
+    }
     body{
         font-family: Arial, sans-serif;
         margin: 0;
@@ -105,12 +105,10 @@
     .button-container button {
         margin: 0 5px;
     }
-
-
 </style>
     <div class="container1">
         <div class="titulo">
-            <h3>Estudiantes</h3> 
+            <h3>Estudiantes</h3>
         </div>
         <a href="{{url('estudiante_formulario')}}"><button>Nuevo Registro</button></a>
         <a href="{{url('estudiante_papelera')}}"><button>Papeleria</button></a>
@@ -120,7 +118,7 @@
                     <td>Id</td>
                     <td>Nombres</td>
                     <td>Apellidos</td>
-                    <td>Correo</td>
+                    <td>Correo electrónico</td>
                     <td>Dirección</td>
                     <td>Fecha de nacimiento</td>
                     <td>Tipo de documento</td>
@@ -141,11 +139,11 @@
                     <td>{{$registro->numero_documento}}</td>
                     <td><a href="#">Editar</a></td>
                     <td><a href="{{ url('estudiante_eliminar/'. $registro->id_estudiante)}}" onclick="return confirm('¿Estas seguro de borrar este campo?')">Borrar</a></td>
-                </tr>        
+                </tr>
             @endforeach
             </table>
-            
+
         </div>
     </div>
-    
+
 @endsection

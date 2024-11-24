@@ -33,7 +33,28 @@ class acudienteController extends Controller
             'tipo_documento' => 'required|string',
             'numero_documento' => 'required|integer|unique:acudientes,numero_documento',
             'estudiante_id' => 'required|exists:estudiantes,id_estudiante',
+        ],[
+            'nombres.required' => 'Se requiere un nombre en este campo',
+            'nombres.alpha' => 'Escriba solo carácteres',
+            'apellidos.required' => 'Se requiere un apellido en este campo',
+            'apellidos.alpha' => 'Escriba solo carácteres',
+            'correo.required' => 'Se requiere un correo en este campo',
+            'correo.email' => 'Escriba un correo valido',
+            'correo.unique' => 'Ya exsite ese correo, introduzca uno nuevo',
+            'direccion.required' => 'Se requiere una dirección en este campo',
+            'direccion.string' => 'Escriba una dirección valida',
+            'telefono.required' => 'Se requiere un telefono en este campo',
+            'telefono.integer' => 'Escriba solo números en este campo',
+            'telefono.unique' => 'Ya existe ese telefono, introduzca uno nuevo',
+            'fecha_nacimiento.required' => 'Se requiere una fecha en este campo',
+            'fecha_nacimiento.date' => 'Solo se acepta fechas en este campo',
+            'tipo_documento.required' => 'Seleccione un tipo de documento',
+            'numero_documento.required' => 'Se requiere un número de documento en este campo',
+            'numero_documento.integer' => 'Escriba solo números en este campo',
+            'numero_documento.unique' => 'Ya existe ese número de documento, introduzca uno nuevo',
+            'estudiante_id.required' => 'Seleccione un estudiante'
         ]);
+
         if($validator->fails()){
             return back()
             ->withErrors($validator)

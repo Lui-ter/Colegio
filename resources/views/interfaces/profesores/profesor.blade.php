@@ -4,20 +4,21 @@
     .container1{
         margin-left: auto;
         margin-right: auto;
+        padding: 20px;
     }
     h3 {
-        text-align: center; 
+        text-align: center;
     }
 
     .titulo {
-    display: flex;            
-    justify-content: center;  
-    align-items: center;       
-    height: 100px;             
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
     width: 100%;
-    font-size: 30px;            
-    background-color: #f0f0f0; 
-} 
+    font-size: 30px;
+    background-color: #f0f0f0;
+}
     body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -105,7 +106,7 @@
 }
 </style>
 @section('container')
-<div class="container">
+<div class="container1">
     <div class="Titulo">
         <H3>Profesores</H3>
     </div>
@@ -138,7 +139,7 @@
                 <td><a href="">Editar</a></td>
                 <td><a href="{{ url('profesor_eliminar/'. $profesor->id_profesor)}}" onclick="return confirm('¿Estas seguro de borrar este campo?')">Borrar</a></td>
 
-            </tr>        
+            </tr>
         @endforeach
         </table>
 

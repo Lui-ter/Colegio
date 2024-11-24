@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title','Administracion')</title>
 <style>
-        
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -13,8 +13,8 @@
             margin: 0;
             padding: 0;
         }
-        
-      
+
+
         header {
             background-color: #2a9d8f;
             color: #fff;
@@ -39,11 +39,6 @@
             display: flex;
             gap: 10px;
         }
- 
-        .container {
-            display: flex;
-        }
-
         .main-content {
             flex-grow: 1;
             padding: 20px;
@@ -52,7 +47,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh; 
+        height: 100%;
+        margin-top: 50px;
+        margin-bottom: 50px;
         }
         .form-box {
         background-color: #ffffff;
@@ -60,13 +57,12 @@
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         width: 400px;
-        
-        margin: auto;
-        margin-top: 14vh;
+        margin-top: 20px;
+        margin-bottom: 20px;
         }
 
         .form-box h2, h3 {
-            color: #3C8E8F; 
+            color: #3C8E8F;
             text-align: center;
             margin-bottom: 20px;
         }
@@ -77,7 +73,7 @@
 
         .input-group label {
             display: block;
-            color: #1D4B58; 
+            color: #1D4B58;
             margin-bottom: 5px;
         }
 
@@ -91,7 +87,7 @@
         .btn {
         width: 100%;
         padding: 10px;
-        background-color: #3C8E8F; 
+        background-color: #3C8E8F;
         color: #ffffff;
         border: none;
         border-radius: 4px;
@@ -100,7 +96,7 @@
         }
 
         .btn:hover {
-        background-color: #2b6f72; 
+        background-color: #2b6f72;
         }
         .input-group select {
         width: 100%;
@@ -108,13 +104,13 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         background-color: #ffffff;
-        color: #1D4B58; 
+        color: #1D4B58;
         font-size: 16px;
         cursor: pointer;
         }
 
         .input-group select:focus {
-        border-color: #3C8E8F; 
+        border-color: #3C8E8F;
         outline: none;
         }
 
@@ -135,16 +131,16 @@
     <!-- Header -->
     <header>
         <a href="/" class="h1">Houston Academy</a>
-        
+
     </header>
 
     <!-- Contenedor Principal -->
     <div class="container">
-       
+
     @yield('container')
     </div>
-    
- 
+
+
     <footer class="footer">
         <p>&copy; 2023 Houston Academy. Todos los derechos reservados.</p>
     </footer>
