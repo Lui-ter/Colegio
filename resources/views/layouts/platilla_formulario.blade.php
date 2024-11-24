@@ -6,23 +6,24 @@
     <title>@yield('title','Administracion')</title>
 <style>
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
 
 
-        header {
-            background-color: #2a9d8f;
-            color: #fff;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    header {
+        background-color: #2a9d8f;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+    }
         .h1{
             font-size: 2em; /* Tamaño de letra típico de un h1 */
             font-weight: bold; /* Peso de fuente típico de h1 */
@@ -44,22 +45,19 @@
             padding: 20px;
         }
         .container {
+        flex-grow: 1;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        }
-        .form-box {
+        padding: 20px;
+    }
+    .form-box {
         background-color: #ffffff;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         width: 400px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        }
+    }
 
         .form-box h2, h3 {
             color: #3C8E8F;
@@ -114,23 +112,22 @@
         outline: none;
         }
 
-        .footer{
+        .footer {
         background-color: #2a9d8f;
         color: #ffffff;
         text-align: center;
         padding: 15px 0;
         font-size: 14px;
-        position: relative;
-        bottom: 0;
         width: 100%;
-        }
+        
+    }
 </style>
 </head>
 <body>
 
     <!-- Header -->
     <header>
-        <a href="/" class="h1">Houston Academy</a>
+       Houston Academy
 
     </header>
 

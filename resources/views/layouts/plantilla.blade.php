@@ -107,11 +107,7 @@
 
     <!-- Header -->
     <header>
-        <a href="/" class="h1">Houston Academy</a>
-        <div class="header-buttons">
-            <a href="/login">Iniciar Sesión</a>
-
-        </div>
+        <a href="/home" class="h1">Houston Academy</a>
     </header>
 
     <!-- Contenedor Principal -->
@@ -120,7 +116,7 @@
         <!-- Menú Lateral -->
         <aside class="sidebar">
             <h2>Home</h2>
-            <a href="/ ">Inicio</a>
+            <a href="/home">Inicio</a>
             <a href="{{url('estudiante_interfaz')}}">Estudiantes</a>
             <a href="{{url('profesor_interfaz')}}">Profesores</a>
             <a href="{{url('acudiente_interfaz')}}">Acudientes</a>

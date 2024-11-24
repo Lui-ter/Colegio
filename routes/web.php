@@ -2,16 +2,17 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\formulariosController;
+
 use App\Http\Controllers\estudianteController;
 use App\Http\Controllers\profesorController;
 use App\Http\Controllers\acudienteController;
 use App\Http\Controllers\cursoController;
+use App\Http\Controllers\loginController;
 use App\Http\Controllers\materiasController;
 use App\Http\Controllers\notasController;
 use App\Models\estudiantes;
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
 });
 
@@ -136,15 +137,13 @@ route::get('/nota_recuperar/{id_nota}',[notasController::class,'recuperar']);
 route::get('/nota_eliminar/{id_nota}',[notasController::class,'eliminar']);
 //---------------------------------Notas----------------------------------------
 
-route::get('/registro_seis',[formulariosController::class, 'registrarM']);
-route::post('/datos_materia',[formulariosController::class, 'guardarM']);
+//---------------------------------Login--------------------------------------------
 
-route::get('/registrar',[formulariosController::class,'mostrarR']);
-route::post('/datos_registro',[formulariosController::class,'registrar']);
-// vista para el login en general
-route::get('/login',[formulariosController::class,'login']);
+route::get('/',[loginController::class,'login']);
 
+route::post('/login_iniciar',[loginController::class,'validar']);
 
+//---------------------------------Login--------------------------------------------
 
 
 
@@ -175,31 +174,4 @@ route::get('/login',[formulariosController::class,'login']);
 
 
 
- /*$estudiantes= new estudiantes;
-    $estudiantes->nombres = 'Karlitos'; 
-    $estudiantes->apellidos = 'Karlitos';
-    $estudiantes->correo = 'karlistos23@gmail.com';
-    $estudiantes->direccion = 'calle13';
-    $estudiantes->fecha_nacimimento = '2024/03/12';
-    $estudiantes->tipo_documento = 'cc';
-    $estudiantes->numero_documento = '3141232';
 
-    $estudiantes->save();
-    return $estudiantes;*/
-
-    //$estudiantes = estudiantes::find(3);
-   //return $estudiantes;
-    //buscar y actualizar
-    /*$estudiantes = estudiantes::where('direccion','calle13')->first();
-    
-
-    $estudiantes->nombres = 'Juanprime';
-    $estudiantes->save();
-
-    return $estudiantes;*/
-
-    /*$estudiantes = estudiantes::all();
-    return $estudiantes;*/
-
-    /*$estudiantes = estudiantes::where('id_estudiante', '>=', '2')->select('id_estudiante','nombres','apellidos')->get();
-    return $estudiantes;*/
