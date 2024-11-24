@@ -115,18 +115,22 @@
         <table border="1">
             <tr>
                 <td>Id</td>
+                <td>Estudiante</td>
                 <td>Nota N°1</td>
                 <td>Nota N°2</td>
                 <td>Nota N°3</td>
+                <td>Materia</td>
                 <td>Editar</td>
                 <td>Borrar</td>
             </tr>
         @foreach ( $nota as $registro )
             <tr>
                 <td>{{$registro->id_nota}}</td>
+                <td>{{$registro->estudiante->nombres.' '.$registro->estudiante->apellidos}}</td>
                 <td>{{$registro->nota1}}</td>
                 <td>{{$registro->nota2}}</td>
                 <td>{{$registro->nota3}}</td>
+                <td>{{$registro->materia->nombre}}</td>
                 <td><a href="">Editar</a></td>
                 <td><a href="{{url('nota_eliminar/' . $registro->id_nota)}}" onclick="return confirm('¿Estas seguro de borrar este campo?')">Borrar</a></td>
             </tr>

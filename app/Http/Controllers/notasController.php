@@ -12,7 +12,7 @@ class notasController extends Controller
 {
     // metodo para mostrar el interfaz y sus registros
     function inicio () {
-        $nota = notas::where('estado', 1)->get();
+        $nota = notas::with('materia', 'estudiante')->where('estado', 1)->get();
         return view ('interfaces/notas/nota', compact('nota'));
     }
 

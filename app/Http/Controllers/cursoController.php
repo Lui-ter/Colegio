@@ -12,8 +12,8 @@ class cursoController extends Controller
 {
     //Metodo para mostrar interfaz y sus registros
     function inicio () {
-        $curso = cursos::where('estado', 1)->get();
-        return view ('interfaces/cursos/curso',['cursos'=>$curso]);
+        $cursos = cursos::with('profesor')->withcount('estudiante')->where('estado', 1)->get();
+        return view ('interfaces/cursos/curso', compact('cursos'));
     }
 
     //Metodo para mostrar formulario

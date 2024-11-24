@@ -14,8 +14,8 @@
             color: #333;
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
+            height: 100vh;
+            width: 100vw;
         }
         header {
             background-color: #2a9d8f;
@@ -24,6 +24,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
 
          .h1 {
@@ -57,11 +58,12 @@
         .container_l {
             display: flex;
             height: 100%;
+            width: 100%;
         }
 
 
         .sidebar {
-            width: 250px;
+            width: 160px;
             background-color: #264653;
             padding: 15px;
             color: #fff;

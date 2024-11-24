@@ -117,8 +117,8 @@
             <tr>
                 <td>Id</td>
                 <td>Nombre</td>
-                <td>profesor_id</td>
-                <td>estudiante_id</td>
+                <td>profesor</td>
+                <td>N° de estudiantes</td>
                 <td>Editar</td>
                 <td>Borrar</td>
             </tr>
@@ -126,8 +126,8 @@
             <tr>
                 <td>{{$curso->id_curso}}</td>
                 <td>{{$curso->nombre}}</td>
-                <td>{{$curso->profesor_id}}</td>
-                <td>{{$curso->estudiante_id}}</td>
+                <td>{{$curso->profesor->nombres.' '.$curso->profesor->apellidos}}</td>
+                <td>{{$curso->estudiante_count}}</td>
                 <td><a href="#">Editar</a></td>
                 <td><a href="{{ url('curso_eliminar/'.$curso->id_curso) }}"onclick="return confirm('¿Estás seguro de borrar este campo?')">Borrar</a></td>
             </tr>

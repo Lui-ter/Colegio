@@ -4,6 +4,7 @@
     .container1{
         margin-left: auto;
         margin-right: auto;
+        padding: 10px;
     }
     h3 {
         text-align: center;
@@ -26,13 +27,13 @@
     }
 
     .tabla {
-    width: 100%;
+    width: auto;
     margin: 20px auto;
     border-collapse: collapse;
     }
 
     .tabla table {
-    width: 100%;
+    width: auto;
     border: 1px solid #ccc;
     }
 
@@ -105,7 +106,7 @@
     }
 </style>
 @section('container')
-<div class="container">
+<div class="container1">
     <div class="Titulo">
         <H3>Acudiente</H3>
     </div>
@@ -118,12 +119,13 @@
                 <td>Id</td>
                 <td>Nombres</td>
                 <td>Apellidos</td>
-                <td>Correo</td>
+                <td>Correo electronico</td>
                 <td>Dirección</td>
                 <td>Telefono</td>
                 <td>Fecha de nacimiento</td>
                 <td>Tipo de documento</td>
                 <td>Numero de Documento</td>
+                <td>Estudiante</td>
                 <td>Editar</td>
                 <td>Borrar</td>
             </tr>
@@ -138,6 +140,7 @@
                 <td>{{$registro->fecha_nacimiento}}</td>
                 <td>{{$registro->tipo_documento}}</td>
                 <td>{{$registro->numero_documento}}</td>
+                <td>{{$registro->estudiante->nombres.' '.$registro->estudiante->apellidos}}</td>
                 <td>Editar</td>
                 <td><a href="{{ url('acudiente_eliminar/'.$registro->id_acudiente)}}"onclick="return confirm('¿Estás seguro de borrar este campo?')">Borrar</a></td>
             </tr>

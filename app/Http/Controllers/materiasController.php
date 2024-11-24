@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Validator;
 class materiasController extends Controller
 {
     function inicio () {
-        $materia = materias::where('estado', 1)->get();
+        $materia = materias::with('profesor')->where('estado', 1)->get();
         return view ('interfaces/materia', ['registros'=> $materia]);
     }
     function nuevo (){
         $profesores = profesores::all();
-        
+
         return view('materia.nuevo',compact('profesores'));
     }
     function guardar(Request $request){
@@ -22,7 +22,7 @@ class materiasController extends Controller
             'nombre' => 'required',
             'profesor_id' => 'required|exists:profesores,id_profesor',
         ]);
- 
+
         if ($validator->fails()) {
             return back()
                         ->withErrors($validator)
@@ -31,7 +31,7 @@ class materiasController extends Controller
         $data=$request->only(['nombre','profesor_id']);
         materias::create($data);
         return redirect('materia');
- 
+
     }
     function eliminar ($id_materia){
         $materia= materias::find($id_materia);

@@ -11,7 +11,7 @@ class acudienteController extends Controller
 {
     // Metodo para mostrar el interfaz-acudiente y sus registros con el estado en 1
     function inicio () {
-        $acudientes = acudientes::where('estado',1)->get();
+        $acudientes = acudientes::with('estudiante')->where('estado',1)->get();
         return view('interfaces/acudientes/acudiente', ['registros'=>$acudientes]);
     }
 

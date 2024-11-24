@@ -21,6 +21,6 @@ class acudientes extends Model
     'estudiante_id'
     ];
     public function estudiante(){
-        return $this->belongsTo(estudiantes::class,'id_estudiante');
+        return $this->belongsTo(estudiantes::class,'estudiante_id', 'id_estudiante');
     }
 }

@@ -15,9 +15,9 @@ class cursos extends Model
     'profesor_id',
      ];
     public function estudiante(){
-        return $this->belongsTo(estudiantes::class,'id_estudiante');
+        return $this->belongsTo(estudiantes::class,'estudiante_id', 'id_estudiante');
     }
     public function profesor(){
-        return $this->belongsTo(profesores::class,'id_profesor');
+        return $this->belongsTo(profesores::class,'profesor_id', 'id_profesor');
     }
 }

@@ -16,10 +16,10 @@ class notas extends Model
     'materia_id',
     'estudiante_id',
     ];
-    public function materias(){
-        return $this->belongsTo(materias::class,'id_materia');
+    public function materia(){
+        return $this->belongsTo(materias::class,'materia_id', 'id_materia');
     }
     public function estudiante(){
-        return $this->belongsTo(estudiantes::class,'id_estudiante');
+        return $this->belongsTo(estudiantes::class,'estudiante_id', 'id_estudiante');
     }
 }
