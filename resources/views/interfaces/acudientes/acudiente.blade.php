@@ -141,7 +141,7 @@
                 <td>{{$registro->tipo_documento}}</td>
                 <td>{{$registro->numero_documento}}</td>
                 <td>{{$registro->estudiante->nombres.' '.$registro->estudiante->apellidos}}</td>
-                <td>Editar</td>
+                <td><a href="{{ url('acudiente_formulario_editar/'.$registro->id_acudiente) }}">Editar</a></td>
                 <td><a href="{{ url('acudiente_eliminar/'.$registro->id_acudiente)}}"onclick="return confirm('¿Estás seguro de borrar este campo?')">Borrar</a></td>
             </tr>
         @endforeach

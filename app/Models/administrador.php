@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class administrador extends Model
 {
     protected $table = 'administrador';
+    protected $fillable = [
+        'Usuario',
+        'Contraseña'
+    ];
 }
