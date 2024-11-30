@@ -144,6 +144,11 @@ route::post('/nota_registro',[notasController::class, 'guardarN']);
 // ruta que dirige a la vista del interfaz-nota
 route::get('/nota_interfaz',[notasController::class,'inicio']);
 
+// ruta que dirige a la vista del formulario para editar un registro
+route::get('nota_formulario_editar/{id_nota}',[notasController::class,'formeditarN']);
+
+route::post('editar_nota/{id_nota}',[notasController::class,'editarN']);
+
 // ruta que dirige a la vista de la papeleria
 route::get('
 /nota_papeleria',[notasController::class,'papeleria']);
