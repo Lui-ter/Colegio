@@ -10,7 +10,7 @@ class loginController extends Controller
      function login(){
         return view('interfaces.login.login');
      }
-    
+
      function validar(Request $request){
       $validator = Validator::make($request->all(),[
       'usuario' => 'required|string',
@@ -32,10 +32,10 @@ class loginController extends Controller
         $admin = administrador::where('Usuario', $usuario)->where('Contraseña',$contraseña)->first();
 
         if($admin){
-         return view('home');
+         return view('home',compact('admin'));
         }else{
          return redirect()->back()->withErrors(['mensaje' => 'Usuario o contraseña incorrectos.']);
-      }        
-        
+      }
+
      }
 }

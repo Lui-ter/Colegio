@@ -57,6 +57,51 @@ class estudianteController extends Controller
         return redirect('estudiante_interfaz');
     }
 
+    // Metodo para mostrar el formulario de editar
+    function formeditarE($id_estudiante){
+        $estudiante = estudiantes::findOrFail($id_estudiante);
+        return view('interfaces/estudiantes/editar_estudiante', compact('estudiante'));
+    }
+
+    // Metodo para recibir los datos del formulario editar y actualizar en la tabla
+    function editarE(Request $request, $id_estudiante){
+        $validator = Validator::make($request->all(),[
+            'nombres' => 'required|alpha:ascii',
+            'apellidos' => 'required|alpha:ascii',
+            'correo' => 'required|email|unique:estudiantes,correo,'. $id_estudiante .',id_estudiante',
+            'direccion' => 'required|string',
+            'fecha_nacimiento' => 'required|date',
+            'tipo_documento' => 'required|string',
+            'numero_documento' => 'required|integer|unique:estudiantes,numero_documento,'. $id_estudiante .',id_estudiante',
+        ],[
+            'nombres.required' => 'Se requiere un nombre en este campo',
+            'nombres.alpha' => 'Escriba solo carácteres',
+            'apellidos.required' => 'Se requiere un apellido en este campo',
+            'apellidos.alpha' => 'Escriba solo carácteres',
+            'correo.required' => 'Se requiere un correo en este campo',
+            'correo.email' => 'Escriba un correo valido',
+            'correo.unique' => 'Ya existe ese correo, introduzca uno nuevo',
+            'direccion.required' => 'Se requiere una dirección en este campo',
+            'direccion.string' => 'Escriba una dirección valida',
+            'fecha_nacimiento.required' => 'Se requiere una fecha en este campo',
+            'fecha_nacimiento.date' => 'Solo se acepta fechas en este campo',
+            'tipo_documento.required' => 'Seleccione un tipo de documento',
+            'numero_documento.required' => 'Se requiere un número de documento en este campo',
+            'numero_documento.integer' => 'Escriba solo números en este campo',
+            'numero_documento.unique' => 'Ya existe ese número de documento, introduzca uno nuevo'
+        ]);
+
+        if($validator->fails()){
+            return back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        $estudiante = estudiantes::findOrFail($id_estudiante);
+        $estudiante->update($request->all());
+        return redirect('estudiante_interfaz');
+    }
+
     //Metodo para eliminar un registro
     function eliminar($id_estudiante){
         $estudiante = estudiantes::find($id_estudiante);

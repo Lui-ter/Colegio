@@ -131,7 +131,7 @@
                 <td>{{$registro->nota2}}</td>
                 <td>{{$registro->nota3}}</td>
                 <td>{{$registro->materia->nombre}}</td>
-                <td><a href="">Editar</a></td>
+                <td><a href="{{url('nota_formulario_editar/'.$registro->id_nota)}}">Editar</a></td>
                 <td><a href="{{url('nota_eliminar/' . $registro->id_nota)}}" onclick="return confirm('¿Estas seguro de borrar este campo?')">Borrar</a></td>
             </tr>
         @endforeach

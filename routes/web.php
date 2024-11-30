@@ -22,7 +22,7 @@ Route::get('/home', function () {
 // ruta que dirige a la vista del formulario registro-estudiante
 Route::get('/estudiante_formulario',[estudianteController::class,'registrarE']);
 
-// ruta post para recibir los datos del formulario registro-estudiante 
+// ruta post para recibir los datos del formulario registro-estudiante
 route::post('/estudiante_registro',[estudianteController::class, 'guardarE']);
 
 // ruta que dirige a la vista del interfaz-estudiante
@@ -30,6 +30,12 @@ route::get('/estudiante_interfaz',[estudianteController::class,'inicio']);
 
 // ruta para la papelera
 route::get('estudiante_papelera',[estudianteController::class,'papelera']);
+
+// ruta para dirigirse a la vista en donde hay un formulario para editar datos en los campos
+route::get('/estudiante_formulario_editar/{id_estudiante}',[estudianteController::class,'formeditarE']);
+
+// ruta para editar los campos
+route::post('/estudiante_editar/{id_estudiante}',[estudianteController::class,'editarE']);
 
 // ruta para recuperar un registro
 route::get('estudiante_recuperar/{id_estudiante}',[estudianteController::class,'recuperar']);
@@ -52,6 +58,12 @@ route::get('/profesor_interfaz',[profesorController::class,'inicio']);
 //ruta que accede interfaz de la papelera
 route::get('/profesor_papelera',[profesorController::class,'papelera']);
 
+// ruta para dirigirse a la vista en donde hay un formulario para editar datos en los campos
+route::get('/profesor_formulario_editar/{id_profesor}',[profesorController::class,'formeditarP']);
+
+// ruta para editar los campos
+route::post('/profesor_editar/{id_profesor}',[profesorController::class,'editarP']);
+
 //ruta para recuperar un campo a papeleria
 route::get('/profesor_recuperar/{id_profesor}',[profesorController::class,'recuperar']);
 
@@ -72,11 +84,17 @@ route::get('/acudiente_interfaz',[acudienteController::class,'inicio']);
 
 // route for the stationery, access the view
 route::get('/papeleria_acudiente',[acudienteController::class,'papeleria']);
+
+// ruta para dirigirse a la vista en donde hay un formulario para editar datos en los campos
+route::get('/acudiente_formulario_editar/{id_acudiente}',[acudienteController::class,'formeditarA']);
+
+// ruta para editar los campos
+route::post('/acudiente_editar/{id_acudiente}',[acudienteController::class,'editarA']);
+
 //ruta para eliminar un campo
-
 route::get('/acudiente_eliminar/{id_acudiente}',[acudienteController::class,'eliminar']);
-//ruta para recuperar
 
+//ruta para recuperar
 route::get('/acudiente_recuperar/{id_acudiente}',[acudienteController::class,'recuperar']);
 
 // -------------------------------Acudientes-------------------------------------
@@ -126,6 +144,11 @@ route::post('/nota_registro',[notasController::class, 'guardarN']);
 // ruta que dirige a la vista del interfaz-nota
 route::get('/nota_interfaz',[notasController::class,'inicio']);
 
+// ruta que dirige a la vista del formulario para editar un registro
+route::get('nota_formulario_editar/{id_nota}',[notasController::class,'formeditarN']);
+
+route::post('editar_nota/{id_nota}',[notasController::class,'editarN']);
+
 // ruta que dirige a la vista de la papeleria
 route::get('
 /nota_papeleria',[notasController::class,'papeleria']);
@@ -144,34 +167,3 @@ route::get('/',[loginController::class,'login']);
 route::post('/login_iniciar',[loginController::class,'validar']);
 
 //---------------------------------Login--------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -136,8 +136,8 @@
                 <td>{{$profesor->telefono}}</td>
                 <td>{{$profesor->tipo_documento}}</td>
                 <td>{{$profesor->num_documento}}</td>
-                <td><a href="">Editar</a></td>
-                <td><a href="{{ url('profesor_eliminar/'. $profesor->id_profesor)}}" onclick="return confirm('¿Estas seguro de borrar este campo?')">Borrar</a></td>
+                <td><a href="{{ url('profesor_formulario_editar/'.$profesor->id_profesor) }}">Editar</a></td>
+                <td><a href="{{ url('profesor_eliminar/'.$profesor->id_profesor)}}" onclick="return confirm('¿Estas seguro de borrar este campo?')">Borrar</a></td>
 
             </tr>
         @endforeach

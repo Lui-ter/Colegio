@@ -45,7 +45,7 @@
 <section class="main-content">
     <!-- Bienvenida -->
     <div class="card">
-        <h2>Bienvenido/a, Administrador</h2>
+        <h2>Bienvenido/a, {{ $admin->Usuario }}</h2>
         <p>Esta es la página principal de administración. Aquí puedes gestionar estudiantes, profesores, clases y ver estadísticas generales.</p>
     </div>
 </section>

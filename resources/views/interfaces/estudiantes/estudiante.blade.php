@@ -137,7 +137,7 @@
                     <td>{{$registro->fecha_nacimiento}}</td>
                     <td>{{$registro->tipo_documento}}</td>
                     <td>{{$registro->numero_documento}}</td>
-                    <td><a href="#">Editar</a></td>
+                    <td><a href="{{ url('estudiante_formulario_editar/'.$registro->id_estudiante) }}">Editar</a></td>
                     <td><a href="{{ url('estudiante_eliminar/'. $registro->id_estudiante)}}" onclick="return confirm('¿Estas seguro de borrar este campo?')">Borrar</a></td>
                 </tr>
             @endforeach
