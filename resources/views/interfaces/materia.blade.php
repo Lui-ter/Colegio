@@ -28,7 +28,7 @@
                         <td>{{$registro->id_materia}}</td>
                         <td>{{$registro->nombre}}</td>
                         <td>{{$registro->profesor->nombres.' '.$registro->profesor->apellidos }}</td>
-                        <td><a href="">Editar</a></td>
+                        <td><a href="{{url('materia_formulario_editar/'.$registro->id_materia)}}">Editar</a></td>
                         <td><a href="{{ url('materia/eliminar/'. $registro->id_materia)}}"  onclick="return confirm('¿Estas seguro de borrar una materia?')">Borrar</a></td>
                     </tr>
                 @endforeach
