@@ -122,6 +122,12 @@ route::post('/curso_registro',[cursoController::class, 'guardarC']);
 // ruta que dirige a la vista del interfaz-curso
 route::get('/curso_interfaz',[cursoController::class,'inicio']);
 
+// ruta que muestra el formulario editar
+route::get('/curso_formulario_editar/{id_curso}',[cursoController::class, 'formeditarC']);
+
+// ruta para actualizar los datos del formulario editar-curso
+route::post('/curso_editar/{id_curso}',[cursoController::class, 'editarC']);
+
 //ruta par la papeleria
 route::get('curso_papeleria',[cursoController::class,'papeleria']);
 
@@ -147,11 +153,11 @@ route::get('/nota_interfaz',[notasController::class,'inicio']);
 // ruta que dirige a la vista del formulario para editar un registro
 route::get('nota_formulario_editar/{id_nota}',[notasController::class,'formeditarN']);
 
+// ruta que lleva los datos del formulario para editarlos en el registro de la base de datos
 route::post('editar_nota/{id_nota}',[notasController::class,'editarN']);
 
 // ruta que dirige a la vista de la papeleria
-route::get('
-/nota_papeleria',[notasController::class,'papeleria']);
+route::get('/nota_papeleria',[notasController::class,'papeleria']);
 
 //ruta para recuperar un campo
 route::get('/nota_recuperar/{id_nota}',[notasController::class,'recuperar']);

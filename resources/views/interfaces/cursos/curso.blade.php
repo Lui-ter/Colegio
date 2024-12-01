@@ -128,8 +128,8 @@
                 <td>{{$curso->nombre}}</td>
                 <td>{{$curso->profesor->nombres.' '.$curso->profesor->apellidos}}</td>
                 <td>{{$curso->estudiante_count}}</td>
-                <td><a href="#">Editar</a></td>
-                <td><a href="{{ url('curso_eliminar/'.$curso->id_curso) }}"onclick="return confirm('¿Estás seguro de borrar este campo?')">Borrar</a></td>
+                <td><a href="{{url('curso_formulario_editar/'.$curso->id_curso)}}">Editar</a></td>
+                <td><a href="{{url('curso_eliminar/'.$curso->id_curso)}}"onclick="return confirm('¿Estás seguro de borrar este campo?')">Borrar</a></td>
             </tr>
         @endforeach
         </table>
