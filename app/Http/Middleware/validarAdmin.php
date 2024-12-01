@@ -5,7 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\administrador;
 class validarAdmin
 {
     /**
@@ -15,11 +16,14 @@ class validarAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->Usuario =='luiter'||'kevin'){
+        //
+        $administrador = Auth::user();
+        
+        if($administrador && $administrador->Usuario ==='luiter')
+        {
             return $next($request);
-        }else{
-            return redirect()->route('home');
         }
+        return redirect('/');
         
     }
 }
