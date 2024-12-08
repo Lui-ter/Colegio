@@ -15,7 +15,7 @@
         </div>
         <div class="input-group">
             <label>Contraseña</label>
-            <input type="text" id="contraseña" name="contraseña" required value="{{ old('contraseña') }}"> <br>
+            <input type="password" id="contraseña" name="contraseña" required value="{{ old('contraseña') }}"> <br>
             @error('contraseña')
             <div class="alerta">{{ $message }}</div>
         @enderror
